@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.12.2",
-    "core-js": "^3.6.5",
+    "core-js": "3.6.5",
     "nuxt": "^2.14.6"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@babel/runtime-corejs3": "7.11.2"
+  }
 }
