@@ -8,7 +8,7 @@
       RailsからAPIを取得する
     </button>
     <div
-      v-for="(msg i) in msgs"
+      v-for="(msg ,i) in msgs"
       :key="i"
     >
       {{ msg }}
@@ -20,7 +20,7 @@
 export default {
   data() {
     return {
-      msg: []
+      msgs: []
     }
   },
   methods: {
