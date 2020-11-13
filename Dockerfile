@@ -9,6 +9,7 @@ ENV HOME=/${WORKDIR} \
     TZ=Asia/Tokyo \
     HOST=0.0.0.0 \
     API_URL=${API_URL}
+    NPM_CONFIG_PRODUCTION=false
 
 RUN echo ${HOME}
 RUN echo ${CONTAINER_PORT}
@@ -17,3 +18,10 @@ RUN echo ${API_URL}
 WORKDIR ${HOME}
 
 EXPOSE ${CONTAINER_PORT}
+
+COPY package*.json ./
+RUN yarn install
+
+COPY . .
+
+RUN yarn run build
