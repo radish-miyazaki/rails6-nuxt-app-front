@@ -62,17 +62,23 @@ export default {
   ],
 
   i18n: {
+    // アプリがサポートする言語
     locales: ['ja', 'en'],
+    // デフォルトの言語
     defaultLocale: 'ja',
     vueI18n: {
+      // defaultLocal(ja.json)にkeyがない場合に参照される（フィードバック）言語
       fallbackLocale: true,
       messages: {
         ja: require('./locales/ja.json'),
         en: require('./locales/en.json')
-      }
+      },
+      // 翻訳が失敗した場合の警告メッセージを出力しない => true
+      // silentFallbackWarn: true
     }
   },
 
+  // public ENV
   publicRuntimeConfig: {
     appName: process.env.APP_NAME
   },
