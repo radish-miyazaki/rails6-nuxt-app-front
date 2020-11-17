@@ -2,7 +2,7 @@
 
   <v-app-bar
     app
-    :dark="isScrollPoint"
+    :dark="!isScrollPoint"
     :height="appBarHeight"
     :color="toolbarStyle.color"
     :elevation="toolbarStyle.elevation"
