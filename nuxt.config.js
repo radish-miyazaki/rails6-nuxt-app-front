@@ -75,7 +75,8 @@ export default {
       },
       // 翻訳が失敗した場合の警告メッセージを出力しない => true
       // silentFallbackWarn: true
-    }
+    },
+    strategy: 'no_prefix'
   },
 
   // public ENV
