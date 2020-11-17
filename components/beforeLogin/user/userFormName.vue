@@ -4,6 +4,8 @@
     placeholder="あなたの表示名"
     outlined
     v-model="setName"
+    :rules="rules"
+    :counter = "max"
   />
 </template>
 
@@ -24,6 +26,17 @@ export default {
       set(newVal) {
         return this.$emit('update:name', newVal)
       }
+    }
+  },
+
+  data() {
+    const max = 30
+    return {
+      max,
+      rules: [
+        v => !!v || '',
+        v => (!!v && max >= v.length || `${max}文字以内で入力してください`)
+      ]
     }
   }
 }

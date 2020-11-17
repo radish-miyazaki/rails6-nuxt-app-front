@@ -6,17 +6,19 @@
       <user-form-name
         :name.sync="params.user.name"
       />
-      <user-form-email 
+      <user-form-email
         :email.sync="params.user.email"
       />
       <user-form-password
         :password.sync="params.user.password"
       />
       <v-btn
-        :disabled="!isValid"
+        :disabled="!isValid || loading"
+        :loading="loading"
         block
         color="myblue"
         class="white--text"
+        @click="signin"
       >
         登録する
       </v-btn>
@@ -34,6 +36,28 @@ export default {
     return {
       isValid: false,
       params: {
+        user: {
+          name: '',
+          email: '',
+          password: ''
+        }
+      },
+      loading: false
+    }
+  },
+  
+  methods: {
+    signup() {
+      this.loading = true
+      setTimeout(() => {
+        this.formReset()
+        this.loading = false
+      }, 1500)
+    },
+
+    formReset() {
+      this.$refs.form.reset()
+      this.params = {
         user: {
           name: '',
           email: '',
