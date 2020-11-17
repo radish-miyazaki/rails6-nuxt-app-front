@@ -10,10 +10,9 @@
     <app-logo 
       @click.native="goTo('scroll-top')"
     />
-    <v-toolbar-title
-      class="hidden-mobile-and-down">
-      {{ appName }}
-    </v-toolbar-title>
+    <app-title
+      class="hidden-mobile-and-down"
+    />
     <v-spacer />
 
     <v-toolbar-items class="ml-2 hidden-ipad-and-down">
@@ -70,9 +69,8 @@ import SignupLink from '../beforeLogin/signupLink.vue'
 export default {
   components: { loginLink, SignupLink },
 
-  data ({ $config: { appName }, $store }){ 
+  data ({ $store }){ 
     return {
-      appName,
       scrollY: 0,
       appBarHeight: $store.state.styles.beforeLogin.appBarHeight
     }
