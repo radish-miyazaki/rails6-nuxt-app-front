@@ -29,6 +29,11 @@ export default {
     'plugins/myInject'
   ],
 
+  axios: {
+    // クロスサイトリクエスト時にCookieを使用することを許可する
+    credentials: true
+  },
+
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
 
