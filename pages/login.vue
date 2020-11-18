@@ -69,9 +69,10 @@ export default {
     },
 
     // ログイン成功
-    authSuccessful(res) {
-      console.log(res)
+    async authSuccessful(res) {
+      await this.$auth.login(res)
     },
+    
 
     // ログイン失敗
     authFailure(e) {

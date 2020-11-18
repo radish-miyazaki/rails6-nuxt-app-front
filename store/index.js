@@ -9,7 +9,8 @@ export const state = () => ({
   },
 
   current: {
-    project: null
+    project:  null,
+    user:     null
   },
 
   projects: [
@@ -33,8 +34,11 @@ export const mutations = {
 
   setCurrentProject(state, payload) {
     state.current.project = payload
-  }
+  },
 
+  setCurrentUser(state, payload) {
+    state.current.user = payload
+  }
 }
 
 export const actions = {
@@ -50,6 +54,11 @@ export const actions = {
   getCurrentProject({ state, commit }, params) {
     const currentProject = state.projects.find(project => project.id ===Number(params.id))
     commit('setCurrentProject', currentProject)
+  },
+
+  // 現在のユーザーを設定する
+  getCurrentUser({ commit }, user) {
+    commit('setCurrentUser', user)
   }
 
 }
