@@ -14,6 +14,18 @@
     "account": {
       "settings": "アカウント変更",
       "password": "パスワード変更"
+    },
+    
+    "project": {
+      "id": {
+        "dashboard":  "ダッシュボード",
+        "layouts":    "レイアウト",
+        "pages":      "ページ",
+        "components": "コンポーネント",
+        "settings":   "設定",
+        "help":       "ヘルプ"
+      }
     }
   }
+
 }

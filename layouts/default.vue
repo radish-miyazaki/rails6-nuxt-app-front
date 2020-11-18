@@ -1,8 +1,15 @@
 <template>
   <v-app>
-    <Nuxt />
+    <logged-in-header />
+    <v-main>
+      <nuxt />
+    </v-main>
   </v-app>
 </template>
+
+<script>
+
+</script>
 
 <style>
 html {
