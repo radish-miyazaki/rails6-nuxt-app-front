@@ -1,6 +1,7 @@
 class MyInject {
-  constructor(app) {
-    this.app = app
+  constructor(ctx) {
+    this.app = ctx.app
+    this.error = ctx.error
   }
 
   // i18nページタイトル変更
@@ -22,8 +23,13 @@ class MyInject {
   projectLinkTo (id, name = 'project-id-dashboard') {
     return { name, params: { id } }
   }
+
+  // エラーハンドリング
+  errorHandler({ status, statusText}) {
+    return this.error({ statusCode: status, message: statusText})
+  }
 }
 
-export default ({ app }, inject) => {
-  inject('my', new MyInject(app))
+export default ({ app, error }, inject) => {
+  inject('my', new MyInject({ app, error }))
 }
