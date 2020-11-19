@@ -27,7 +27,8 @@ export default {
   plugins: [
     'plugins/auth',
     'plugins/axios',
-    'plugins/myInject'
+    'plugins/myInject',
+    'plugins/nuxtClientInit'
   ],
 
   axios: {

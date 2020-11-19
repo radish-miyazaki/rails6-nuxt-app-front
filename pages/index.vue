@@ -1,5 +1,6 @@
 <template>
   <div id="logged-in-home">
+
     <v-parallax>
       <v-img
         :src="homeImg"
@@ -127,9 +128,9 @@ import homeImg from '~/assets/images/loggedIn/home.png'
 
 export default {
 
-  layout({ store }) {
+  layout({ $auth }) {
     // ログインしている場合'loggedIn'を、ログインしていない場合'welcome'を返す
-    return store.state.loggedIn ? 'loggedIn' : 'welcome'
+    return $auth.isloggedIn ? 'loggedIn' : 'welcome'
   },
 
   computed: {

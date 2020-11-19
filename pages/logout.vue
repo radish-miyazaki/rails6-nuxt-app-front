@@ -5,17 +5,12 @@
 <script>
 export default {
 
-  // トップページ以外のページではこちらの処理でリダイレクト
-  async middleware({ store, redirect, from }) {
-    await store.dispatch('logout')
-    if (from.name !== 'index') { return redirect('/') }
-  },
-
-  // トップページの場合、こちらの処理でリダイレクト
   layout: 'logout',
-  beforeCreate() {
+  async beforeCreate() {
+    await this.$auth.logout()
     this.$router.replace('/')
   }
+
 }
 
 </script>

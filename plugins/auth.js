@@ -50,7 +50,23 @@ class Authentication {
 
   // 有効期限内であるか確認する
   isAuthenticated() {
-    return new Data().getTime() < this.getExpire()
+    return new Date().getTime() < this.getExpire()
+  }
+
+  // Vuexのユーザーを返す
+  // getを用いて、プロパティとして追加する
+  get user() {
+    return this.store.state.current.user || {}
+  }
+
+  // ユーザーオブジェクトがある場合にtrueを返す
+  isUserPresent() {
+    return ('id' in this.user)
+  }
+
+  // 有効期限内、かつユーザーが存在する場合のみtrueを返す
+  get isloggedIn() {
+    return this.isAuthenticated() && this.isUserPresent()
   }
 
   // ログイン
