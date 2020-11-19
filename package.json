@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
+    "crypto-js": "^4.0.0",
     "nuxt": "^2.13.0",
     "nuxt-i18n": "^6.15.4"
   },
