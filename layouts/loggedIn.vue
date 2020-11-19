@@ -9,7 +9,7 @@
 
 <script>
 export default {
-
+  middleware: 'authenticator'
 }
 </script>
 

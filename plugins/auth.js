@@ -81,6 +81,12 @@ class Authentication {
     this.removeStorage()                        // localStorageから有効期限を消去
     this.store.dispatch('getCurrentUser', null) // Vuexのユーザーをnull
   }
+
+  // 認証エラー処理
+  unauthError() {
+    this.removeStorage()
+    throw this.error({ statusCode: 401, message: 'Unauthorized' })
+  }
 }
 export default ({ store, $axios, error, $config }, inject) => {
   inject('auth', new Authentication({ store, $axios, error, $config }))

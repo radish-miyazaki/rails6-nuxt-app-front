@@ -72,6 +72,7 @@ export default {
     // ログイン成功
     async authSuccessful(res) {
       await this.$auth.login(res)
+      this.$router.push(this.$store.state.rememberRoute)
     },
     
 
