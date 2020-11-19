@@ -24,9 +24,8 @@ export default async ({ $auth, store, route, redirect }) => {
       store.dispatch('getRememberRoute', route) // ログイン前のルートを記録する
 
     }
-
-    // TODO トースター出力
-    console.log(msg)
+    
+    store.dispatch('getToast', { msg })
 
     return redirect('/login')
   
