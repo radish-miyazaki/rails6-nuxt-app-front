@@ -80,6 +80,7 @@ class Authentication {
     this.$axios.$delete('/api/v1/user_token')   // アクセストークンの削除
     this.removeStorage()                        // localStorageから有効期限を消去
     this.store.dispatch('getCurrentUser', null) // Vuexのユーザーをnull
+    this.store.dispatch('getProjects', [])      // プロジェクトを空
   }
 
   // 認証エラー処理

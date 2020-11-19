@@ -11,14 +11,7 @@ export const state = () => ({
     user:     null
   },
 
-  projects: [
-    // 仮のデータ群
-    { id: 1, name: 'MyProject01', updatedAt: '2020-04-01T12:00:00+09:00' },
-    { id: 2, name: 'MyProject02', updatedAt: '2020-04-05T12:00:00+09:00' },
-    { id: 3, name: 'MyProject03', updatedAt: '2020-04-03T12:00:00+09:00' },
-    { id: 4, name: 'MyProject04', updatedAt: '2020-04-04T12:00:00+09:00' },
-    { id: 5, name: 'MyProject05', updatedAt: '2020-04-01T12:00:00+09:00' }
-  ],
+  projects: [],
 
   rememberRoute: {
     name: 'index',
@@ -50,6 +43,10 @@ export const mutations = {
 
   setToast(state, payload) {
     state.toast = payload
+  },
+
+  setProjects(state, payload) {
+    state.projects = payload
   }
 }
 
@@ -76,5 +73,10 @@ export const actions = {
     toast.color = toast.color || 'error'
     toast.timeout = toast.timeout || 4000
     commit('setToast', toast)
+  },
+
+  // ユーザーのプロジェクト一覧をセットする
+  getProjects({ commit }, projects) {
+    commit('setProjects', projects)
   }
 }

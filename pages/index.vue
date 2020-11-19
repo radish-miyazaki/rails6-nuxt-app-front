@@ -128,8 +128,8 @@ import homeImg from '~/assets/images/loggedIn/home.png'
 
 export default {
 
-  middleware: 'authenticator',
-
+  middleware: ['authenticator', 'getProjects'],
+  
   layout({ $auth }) {
     // ログインしている場合'loggedIn'を、ログインしていない場合'welcome'を返す
     return $auth.isloggedIn ? 'loggedIn' : 'welcome'
